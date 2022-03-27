@@ -5,11 +5,11 @@ export default class MainContent extends Component {
     appTitle: "Customers",
     customerCount: 5,
     customers: [
-      { id: 1, name: "Scott", phone: "123-256", address: { city: "Pune" } },
-      { id: 2, name: "Scott", phone: "113-256", address: { city: "Delhi" } },
-      { id: 3, name: "Scott", phone: "333-256", address: { city: "Chennai" } },
-      { id: 4, name: "Scott", phone: "", address: { city: "Mumbai" } },
-      { id: 5, name: "Scott", phone: "", address: { city: "Banglore" } },
+      { id: 1, name: "Scott", photo:"https://picsum.photos/id/1012/60", phone: "123-256", address: { city: "Pune" } },
+      { id: 2, name: "Eva", photo:"https://picsum.photos/id/1022/60", phone: "113-256", address: { city: "Delhi" } },
+      { id: 3, name: "Lana", photo:"https://picsum.photos/id/1015/60", phone: "333-256", address: { city: "Chennai" } },
+      { id: 4, name: "Emma", photo:"https://picsum.photos/id/1019/60", phone: "", address: { city: "Mumbai" } },
+      { id: 5, name: "Tia", photo:"https://picsum.photos/id/1012/60", phone: "", address: { city: "Banglore" } },
     ],
   };
 
@@ -29,11 +29,19 @@ export default class MainContent extends Component {
     );
   };
 
+  onClickChangePhoto = () => {
+    console.log("clicked !!!");
+  };
+
   getCustomerRow = () => {
       return this.state.customers.map((user) => {
       return (
         <tr key={user.id}>
           <td> {user.id} </td>
+          <td>
+             <img src={user.photo} alt="profile pic" />
+             <button className="btn btn-sm btn-secondary m-2" onClick={ (user) =>this.onClickChangePhoto(user)}>Change Photo</button>
+          </td>
           <td> {user.name} </td>
           <td> {this.getPhoneNumberToRender(user.phone)} </td>
           <td> {user.address.city} </td>
@@ -57,6 +65,7 @@ export default class MainContent extends Component {
           <thead>
             <tr>
               <th scope="col">ID</th>
+              <th scope="col">PHOTO</th>
               <th scope="col">NAME</th>
               <th scope="col">PHONE-NUMBER</th>
               <th scope="col">ADDRESS</th>
