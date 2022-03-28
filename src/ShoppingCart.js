@@ -38,6 +38,17 @@ export default class ShoppingCart extends Component {
     }
   };
 
+  handleDelete = (product) => {
+    let allProduct = [...this.state.products];
+    let index = allProduct.indexOf(product);
+    if(window.confirm(`Are Sure You Want To ${product.productName} Delete ?`)){
+      allProduct.splice(index,1);
+      this.setState({
+        products: allProduct
+      });
+    }
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -50,6 +61,7 @@ export default class ShoppingCart extends Component {
                 product={prod}
                 onIncrement={this.handleIncrement}
                 onDecrement={this.handleDecrement}
+                onDelete={this.handleDelete}
               >
                 <button className="btn btn-primary">Buy Now</button>
               </Product>
