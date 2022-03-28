@@ -17,16 +17,16 @@ export default class ShoppingCart extends Component {
   render() {
     return (
       <React.Fragment>
-        <h4>Shopping Cart</h4>
-        <div>
-          {this.state.products.map((prod) =>
-            <Product
-              key={prod.id}
-              id={prod.id}
-              productName={prod.productName}
-              price={prod.price}
-            />
-          )}
+        <div className="container-fluid">
+          <h4 className='m-2'>Shopping Cart</h4>
+          <div className='row'>
+            {this.state.products.map((prod) =>
+              <Product
+                key={prod.id}
+                product={prod}
+              />
+            )}
+          </div>
         </div>
       </React.Fragment>
     )
