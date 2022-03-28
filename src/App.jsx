@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import jquery from "jquery";
+import jquery from "jquery";
 import 'popper.js/dist/umd/popper';
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';

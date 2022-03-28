@@ -5,14 +5,41 @@ export default class ShoppingCart extends Component {
 
   state = ({
     products: [
-      {id:1, productName: "iPhone" , price:999 , quantity: 10},
-      {id:2, productName: "iPad" , price:899 , quantity: 13},
-      {id:3, productName: "iMac" , price:3999 , quantity: 1},
-      {id:4, productName: "Sony Camera" , price:2299 , quantity: 19},
-      {id:5, productName: "Dr.Dre Headphones" , price:399 , quantity: 100},
-      {id:6, productName: "Sony Bravia TV" , price:1199 , quantity: 33},
+      {id:1, productName: "iPhone" , price:999 , quantity: 0},
+      {id:2, productName: "iPad" , price:899 , quantity: 0},
+      {id:3, productName: "iMac" , price:3999 , quantity: 0},
+      {id:4, productName: "Sony Camera" , price:2299 , quantity: 0},
+      {id:5, productName: "Dr.Dre Headphones" , price:399 , quantity: 0},
+      {id:6, productName: "Sony Bravia TV" , price:1199 , quantity: 0},
     ]
   });
+
+  handleIncrement = (product) => {
+
+    let allProduct = [...this.state.products];
+    let index = allProduct.indexOf(product);
+    allProduct[index].quantity++;
+    this.setState({
+      products:allProduct
+    })
+
+  };
+
+  handleDecrement = (product) => {
+
+    let allProduct = [...this.state.products];
+    let index = allProduct.indexOf(product);
+    if(allProduct[index].quantity === 0){
+      return;
+    }
+    else{
+      allProduct[index].quantity--;
+      this.setState({
+        products: allProduct
+      });
+    }
+
+  };
 
   render() {
     return (
@@ -24,7 +51,11 @@ export default class ShoppingCart extends Component {
               <Product
                 key={prod.id}
                 product={prod}
-              />
+                onIncrement={this.handleIncrement}
+                onDecrement={this.handleDecrement}
+              >
+                <button className="btn btn-primary">Buy Now</button>
+              </Product>
             )}
           </div>
         </div>
