@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class MainContent extends Component {
+export default class CustomersList extends Component {
   state = {
     appTitle: "Customers",
     customerCount: 5,
@@ -29,18 +29,24 @@ export default class MainContent extends Component {
     );
   };
 
-  onClickChangePhoto = () => {
-    console.log("clicked !!!");
+  onClickChangePhoto = (user,index) => {
+    console.log(user,index);
+    var userData = this.state.customers;
+    userData[index].photo = "https://picsum.photos/id/1044/60";
+
+    this.setState({
+      customers: userData
+    })
   };
 
   getCustomerRow = () => {
-      return this.state.customers.map((user) => {
+      return this.state.customers.map((user,index) => {
       return (
         <tr key={user.id}>
           <td> {user.id} </td>
           <td>
              <img src={user.photo} alt="profile pic" />
-             <button className="btn btn-sm btn-secondary m-2" onClick={ (user) =>this.onClickChangePhoto(user)}>Change Photo</button>
+             <button className="btn btn-sm btn-secondary m-2" onClick={ () => this.onClickChangePhoto(user,index)}>Change Photo</button>
           </td>
           <td> {user.name} </td>
           <td> {this.getPhoneNumberToRender(user.phone)} </td>

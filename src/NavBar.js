@@ -8,7 +8,7 @@ export default class NavBar extends Component {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-style">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
-              MyApp
+              Dream Cart
             </a>
             <button
               className="navbar-toggler"
