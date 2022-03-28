@@ -19,7 +19,14 @@ export default class ShoppingCart extends Component {
       <React.Fragment>
         <h4>Shopping Cart</h4>
         <div>
-          {this.state.products.map((prod) => <Product />)}
+          {this.state.products.map((prod) =>
+            <Product
+              key={prod.id}
+              id={prod.id}
+              productName={prod.productName}
+              price={prod.price}
+            />
+          )}
         </div>
       </React.Fragment>
     )
