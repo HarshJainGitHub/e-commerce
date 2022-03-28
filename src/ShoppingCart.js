@@ -14,31 +14,28 @@ export default class ShoppingCart extends Component {
     ]
   });
 
-  handleIncrement = (product) => {
+  handleIncrement = (product, maxValue) => {
 
     let allProduct = [...this.state.products];
     let index = allProduct.indexOf(product);
-    allProduct[index].quantity++;
-    this.setState({
-      products:allProduct
-    })
-
+    if(allProduct[index].quantity < maxValue){
+      allProduct[index].quantity++;
+      this.setState({
+        products:allProduct
+      })
+    }
   };
 
   handleDecrement = (product) => {
 
     let allProduct = [...this.state.products];
     let index = allProduct.indexOf(product);
-    if(allProduct[index].quantity === 0){
-      return;
-    }
-    else{
+    if(allProduct[index].quantity !== 0){
       allProduct[index].quantity--;
       this.setState({
         products: allProduct
       });
     }
-
   };
 
   render() {
