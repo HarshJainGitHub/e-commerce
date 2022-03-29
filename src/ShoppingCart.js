@@ -4,6 +4,7 @@ import Product from './Product';
 class ShoppingCart extends Component {
 
   constructor(props){
+    console.log("Mounting Phase :- Constructor()");
     super(props);
     this.state = ({
       products: [
@@ -53,6 +54,7 @@ class ShoppingCart extends Component {
   };
 
   render() {
+    console.log("Mounting Phase :- Render()");
     return (
       <React.Fragment>
         <div className="container-fluid">
@@ -73,6 +75,14 @@ class ShoppingCart extends Component {
         </div>
       </React.Fragment>
     )
+  }
+
+  componentDidMount(){
+    console.log("Mounting Phase:- ComponentDidMount()");
+  }
+
+  componentDidUpdate(prevProps,prevState){
+    console.log("Updating Phase:- ComponentDidUpdate()",prevProps,prevState,this.props,this.state);
   }
 }
 
