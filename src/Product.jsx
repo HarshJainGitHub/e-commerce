@@ -2,10 +2,15 @@ import React, { Component } from "react";
 
 export default class product extends Component {
 
-  state = {
-    product: this.props.product
+  constructor(props){
+    super(props);
+    this.state = {
+      product: this.props.oduct
+    }
+    console.log("Mounting phase: product, constructor() ");
   }
   render() {
+    console.log("Mounting phase: product, render() ");
     return (
       <div className="col-lg-6">
         <div className="card m-2">
@@ -55,5 +60,18 @@ export default class product extends Component {
         </div>
       </div>
     );
+  }
+
+  componentDidMount(){
+    console.log("Mounting phase: product, componentDidMount() ");
+  }
+
+  componentDidUpdate(prevProps,prevState){
+    console.log("Updating phase: product ",prevProps,prevState);
+  }
+
+  componentDidCatch(error,info){
+    console.log("Error handling phase: product,componentDidCatch() ");
+    localStorage.lastError = `${error}\n${JSON.stringify(info)}`;
   }
 }
