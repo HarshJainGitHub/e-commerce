@@ -1,18 +1,21 @@
 import React, { Component } from 'react'
 import Product from './Product';
 
-export default class ShoppingCart extends Component {
+class ShoppingCart extends Component {
 
-  state = ({
-    products: [
-      {id:1, productName: "iPhone" , price:999 , quantity: 0},
-      {id:2, productName: "iPad" , price:899 , quantity: 0},
-      {id:3, productName: "iMac" , price:3999 , quantity: 0},
-      {id:4, productName: "Sony Camera" , price:2299 , quantity: 0},
-      {id:5, productName: "Dr.Dre Headphones" , price:399 , quantity: 0},
-      {id:6, productName: "Sony Bravia TV" , price:1199 , quantity: 0},
-    ]
-  });
+  constructor(props){
+    super(props);
+    this.state = ({
+      products: [
+        {id:1, productName: "iPhone" , price:999 , quantity: 0},
+        {id:2, productName: "iPad" , price:899 , quantity: 0},
+        {id:3, productName: "iMac" , price:3999 , quantity: 0},
+        {id:4, productName: "Sony Camera" , price:2299 , quantity: 0},
+        {id:5, productName: "Dr.Dre Headphones" , price:399 , quantity: 0},
+        {id:6, productName: "Sony Bravia TV" , price:1199 , quantity: 0},
+      ]
+    });
+  }
 
   handleIncrement = (product, maxValue) => {
 
@@ -72,3 +75,5 @@ export default class ShoppingCart extends Component {
     )
   }
 }
+
+export default ShoppingCart;
