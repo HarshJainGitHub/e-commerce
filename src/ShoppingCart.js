@@ -4,7 +4,7 @@ import Product from './Product';
 class ShoppingCart extends Component {
 
   constructor(props){
-    console.log("Mounting Phase Shoping Cart:- Constructor()");
+    // console.log("Mounting Phase Shoping Cart:- Constructor()");
     super(props);
     this.state = ({
       products: [
@@ -54,7 +54,7 @@ class ShoppingCart extends Component {
   };
 
   render() {
-    console.log("Mounting Phase Shoping Cart:- Render()");
+    // console.log("Mounting Phase Shoping Cart:- Render()");
     return (
       <React.Fragment>
         <div className="container-fluid">
@@ -78,16 +78,16 @@ class ShoppingCart extends Component {
   }
 
   componentDidMount(){
-    console.log("Mounting Phase:- Shoping Cart ComponentDidMount()");
+    // console.log("Mounting Phase:- Shoping Cart ComponentDidMount()");
   }
 
   componentDidUpdate(prevProps,prevState){
-    console.log("Updating Phase:- Shoping Cart ComponentDidUpdate()",prevProps,prevState,this.props,this.state);
+    // console.log("Updating Phase:- Shoping Cart ComponentDidUpdate()",prevProps,prevState,this.props,this.state);
   }
 
   componentDidCatch(error,info){
-    console.log("Error handling phase: ShoppingCart,componentDidCatch() ");
-    localStorage.lastError = `${error}\n${JSON.stringify(info)}`;
+    // console.log("Error handling phase: ShoppingCart,componentDidCatch() ");
+    // localStorage.lastError = `${error}\n${JSON.stringify(info)}`;
   }
 }
 
