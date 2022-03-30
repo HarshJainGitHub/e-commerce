@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import NavBar from "./NavBar";
 // import CustomersList from './CustomersList';
 import ShoppingCart from './ShoppingCart';
+import Login from './Login';
 
 export default class App extends Component {
   render() {
@@ -13,7 +14,8 @@ export default class App extends Component {
       <div>
         <NavBar />
         {/* <CustomersList /> */}
-        <ShoppingCart />
+        {/* <ShoppingCart /> */}
+        <Login />
       </div>
     )
   }
