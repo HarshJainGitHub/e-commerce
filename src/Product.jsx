@@ -27,7 +27,7 @@ export default class product extends Component {
           </div>
           {/* card body ends here */}
 
-          <div className="card-footer">
+          <div className="card-footer" style={{display:'flex',justifyContent:'space-between'}}>
             <div className="float-left">
               <span className="badge badge-info badge-dark" style={{color:"#000"}}>
               {this.state.product.quantity}
