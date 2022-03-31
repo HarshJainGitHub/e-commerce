@@ -7,14 +7,7 @@ class ShoppingCart extends Component {
     // console.log("Mounting Phase Shoping Cart:- Constructor()");
     super(props);
     this.state = ({
-      products: [
-        {id:1, productName: "iPhone" , price:999 , quantity: 0},
-        {id:2, productName: "iPad" , price:899 , quantity: 0},
-        {id:3, productName: "iMac" , price:3999 , quantity: 0},
-        {id:4, productName: "Sony Camera" , price:2299 , quantity: 0},
-        {id:5, productName: "Dr.Dre Headphones" , price:399 , quantity: 0},
-        {id:6, productName: "Sony Bravia TV" , price:1199 , quantity: 0},
-      ]
+      products:[]
     });
   }
 
@@ -79,6 +72,19 @@ class ShoppingCart extends Component {
 
   componentDidMount(){
     // console.log("Mounting Phase:- Shoping Cart ComponentDidMount()");
+    fetch('http://localhost:5000/products',{method:"GET"})
+    .then( (response) => {
+      if(response.status){
+        let promise2 = response.json();
+        promise2.then((prods) => {
+          console.log(prods);
+          this.setState({
+            products: prods
+          });
+        });
+        console.log(this.state.products);
+      }
+    });
   }
 
   componentDidUpdate(prevProps,prevState){
