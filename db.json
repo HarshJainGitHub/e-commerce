@@ -6,5 +6,9 @@
     {"id":4, "productName": "Sony Camera" , "price":2299 , "quantity": 0},
     {"id":5, "productName": "Dr.Dre Headphones" , "price":399 , "quantity": 0},
     {"id":6, "productName": "Sony Bravia TV" , "price":1199 , "quantity": 0}
+  ],
+  "users":[
+    {"id":1,"email":"admin@gmail.com","password":"admin123"},
+    {"id":2,"email":"penny@test.com","password":"penny123"}
   ]
 }
