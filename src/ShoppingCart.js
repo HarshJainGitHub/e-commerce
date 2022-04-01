@@ -50,7 +50,6 @@ class ShoppingCart extends Component {
     // console.log("Mounting Phase Shoping Cart:- Render()");
     return (
       <React.Fragment>
-        <div className="container-fluid">
           <h4 className='m-2'>Shopping Cart</h4>
           <div className='row'>
             {this.state.products.map((prod) =>
@@ -65,7 +64,6 @@ class ShoppingCart extends Component {
               </Product>
             )}
           </div>
-        </div>
       </React.Fragment>
     )
   }

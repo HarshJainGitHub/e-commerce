@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import "./index.css";
-
+import { NavLink } from "react-router-dom";
 export default class NavBar extends Component {
+
+  constructor(props){
+    super(props);
+    console.log(this.props.isLoggedIn);
+  }
+
   render() {
     return (
       <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-style">
           <div className="container-fluid">
-            <a className="navbar-brand" href="/#">
-              Dream Cart
-            </a>
+            <span className="navbar-brand">
+              DreamCart
+            </span>
             <button
               className="navbar-toggler"
               type="button"
@@ -26,11 +32,34 @@ export default class NavBar extends Component {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/#">
-                    Home
-                  </a>
-                </li>
+                { !this.props.isLoggedIn ? (
+                  <li className="nav-item">
+                    <NavLink to="/" className="nav-link" exact="true">
+                      Login
+                    </NavLink>
+                  </li>) : ""
+                }
+                { this.props.isLoggedIn ? (
+                  <li className="nav-item">
+                    <NavLink to="/dashboard" className="nav-link">
+                      Dashboard
+                    </NavLink>
+                  </li>
+                ) : "" }
+                { this.props.isLoggedIn ? (
+                  <li className="nav-item">
+                    <NavLink to="/customers" className="nav-link">
+                      Customers
+                    </NavLink>
+                  </li>
+                ) : "" }
+                { this.props.isLoggedIn ? (
+                  <li className="nav-item">
+                    <NavLink to="/cart" className="nav-link">
+                      Shopping Cart
+                    </NavLink>
+                  </li>
+                ) : "" }
               </ul>
             </div>
           </div>

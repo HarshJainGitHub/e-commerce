@@ -13,7 +13,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className='col-lg-9'>
+      <div>
         <h4 className='mt-1 p-2 border-bottom'>Login</h4>
         <div className="form-group form-row mt-1 p-2">
           <label className="col-lg-4">Email:</label>
@@ -54,6 +54,7 @@ export default class Login extends Component {
       this.setState({
         message: <span className='text-success'> Successfully LoggedIn</span>
       })
+      this.props.updateIsLoggedInStatus(true);
     }
     else{
       this.setState({

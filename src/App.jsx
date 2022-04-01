@@ -11,18 +11,32 @@ import Dashboard from './Dashboard';
 import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import NoMatchPage from './NoMatchPage';
 export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      isLoggedIn: false
+    }
+  };
   render() {
     return (
       <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" exact element={ <Login /> } />
-          <Route path="/cart" exact element={ <ShoppingCart /> } />
-          <Route path="/customers" exact element={ <CustomersList /> } />
-          <Route path="/dashboard" exact element={ <Dashboard /> } />
-          <Route path="*" element={ <NoMatchPage /> } />
-        </Routes>
+        <NavBar isLoggedIn={ this.state.isLoggedIn}/>
+        <div className="container-fluid">
+          <Routes>
+            <Route path="/" exact element={ <Login {...this.props} updateIsLoggedInStatus={this.updateIsLoggedInStatus} /> } />
+            <Route path="/cart" exact element={ <ShoppingCart /> } />
+            <Route path="/customers" exact element={ <CustomersList /> } />
+            <Route path="/dashboard" exact element={ <Dashboard /> } />
+            <Route path="*" element={ <NoMatchPage /> } />
+          </Routes>
+        </div>
       </BrowserRouter>
     )
+  }
+
+  updateIsLoggedInStatus = (status) => {
+    this.setState({
+      isLoggedIn: status
+    })
   }
 }
