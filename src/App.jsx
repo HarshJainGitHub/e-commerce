@@ -13,14 +13,12 @@ import NoMatchPage from './NoMatchPage';
 export default class App extends Component {
   constructor(props){
     super(props);
-    this.state ={
-      isLoggedIn: false
-    }
+    this.state = { isLoggedIn: false };
   };
   render() {
     return (
       <BrowserRouter>
-        <NavBar isLoggedIn={ this.state.isLoggedIn}/>
+        <NavBar isLoggedIn={ this.state.isLoggedIn} updateIsLoggedInStatus={this.updateIsLoggedInStatus} />
         <div className="container-fluid">
           <Routes>
             <Route path="/" exact element={ <Login {...this.props} updateIsLoggedInStatus={this.updateIsLoggedInStatus} /> } />
@@ -35,6 +33,7 @@ export default class App extends Component {
   }
 
   updateIsLoggedInStatus = (status) => {
+    console.log("caaled",status);
     this.setState({
       isLoggedIn: status
     })

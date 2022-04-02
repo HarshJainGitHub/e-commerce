@@ -60,6 +60,13 @@ export default class NavBar extends Component {
                     </NavLink>
                   </li>
                 ) : "" }
+                { this.props.isLoggedIn ? (
+                  <li className="nav-item">
+                    <a href="/" className="nav-link" onClick={this.onLogoutClick}>
+                      Logout
+                    </a>
+                  </li>
+                ) : "" }
               </ul>
             </div>
           </div>
@@ -67,4 +74,9 @@ export default class NavBar extends Component {
       </>
     );
   }
+
+  onLogoutClick = (event) => {
+    event.preventDefault();
+    this.props.updateIsLoggedInStatus(false);
+  };
 }

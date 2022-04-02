@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 export default class Login extends Component {
 
   constructor(props){
@@ -55,7 +54,7 @@ export default class Login extends Component {
         message: <span className='text-success'> Successfully LoggedIn</span>
       })
       this.props.updateIsLoggedInStatus(true);
-      window.location.replace("http://localhost:3000/dashboard");
+      window.location.replace('/dashboard');
     }
     else{
       this.setState({
