@@ -55,6 +55,7 @@ export default class Login extends Component {
         message: <span className='text-success'> Successfully LoggedIn</span>
       })
       this.props.updateIsLoggedInStatus(true);
+      window.location.replace("http://localhost:3000/dashboard");
     }
     else{
       this.setState({
